@@ -5,27 +5,34 @@ import React from 'react';
 
 
 function App() {
-  constructor(props){
-    super(props){
-      this.state ={
-        newItem:""
+  constructor(props)
+  {
+    super(props)
+    {
+      this.state =
+      {
+        newItem:"",
         list:[]
       }
     }
   }
-  updateInput(key,value){
+  updateInput(key,value)
+  {
     this.setState[{
       [key]:value
     }]
   }
-  deleteItem(id){
+  deleteItem(id)
+  {
     const list =[...this.state.list]
-    const updatedlist = list.filter(item => item.id !== id);
+    const updatedlist = list.filter(Item => Item.id !== id);
     this.setState({list: updatedlist});
   }
-  addItem() {
-    const newItem ={
-      id=1+Math.random()
+  addItem() 
+  {
+    const newItem =
+    {
+      id:1+Math.random (),
       value: this.state.newItem.slice()
     };
     const list =[...this.state.list];
@@ -42,7 +49,7 @@ render ()
       <div>
         Add an Item---
         <br/>
-        <input type="text"placeholder="Please enter item"Value ={this.state.newItem}
+        <input type="text"placeholder="Please enter item" value ={this.state.newItem}
         onChange={e => this.updateInput("newItem",e.target.value)}/>
         <button
         onClick={() => this.addItem}>ADD</button>
