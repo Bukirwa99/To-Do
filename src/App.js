@@ -1,26 +1,27 @@
-import { render } from "@testing-library/react";
-
-import React from 'react';
-
+import React, { Component } from "react";
+import './App.css';
 
 
-function App() {
-  constructor(props)
+class App extends Component{
+  constructor (props)
   {
-    super(props)
+    super(props);
+    //eslint-disable-next-line
     {
-      this.state =
-      {
-        newItem:"",
-        list:[]
+      this.state ={
+         newItem:"",
+      list:[]
       }
+    
+      
     }
   }
   updateInput(key,value)
   {
-    this.setState[{
+    
+    this.setState({
       [key]:value
-    }]
+    })
   }
   deleteItem(id)
   {
@@ -32,37 +33,39 @@ function App() {
   {
     const newItem =
     {
-      id:1+Math.random (),
+      id: 1+ Math.random (),
       value: this.state.newItem.slice()
     };
     const list =[...this.state.list];
     list.push(newItem);
-    this.setState =[{
+    this.setState =({
+
       list,
       newItem:""
-    }]
+    })
   }
 render ()
   {
   return (
-    <div>
+    <div className="App">
       <div>
-        Add an Item---
+        <h4>Add Activity</h4>
         <br/>
         <input type="text"placeholder="Please enter item" value ={this.state.newItem}
         onChange={e => this.updateInput("newItem",e.target.value)}/>
         <button
-        onClick={() => this.addItem}>ADD</button>
+        type ="submit"
+        onClick={() => this.addItem()}>ADD</button>
         <br/>
         <ul>
-          {this.state.map(item =>{
+          {this.state.list.map(Item =>{
             return(
-              <li key={id}>
-                {item.value}
+              <li key={Item.id}>
+                {Item.value}
                 <button
-                onClick={()=> this.deleteItem[Item.id]}
-                ></button>
-                *
+                onClick={()=> this.deleteItem(Item.id)}
+                >x</button>
+                
                                      </li>
             )
           })}
@@ -71,7 +74,11 @@ render ()
     </div>
    
   );
+        }
 }
-}
+
+
+
+
 
 export default App;
